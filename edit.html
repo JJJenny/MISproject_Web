@@ -79,7 +79,8 @@
 
 <div class="grid_6" style=" left: 500px; top: 0px;"  id="preview"  class="shows">
   <img src="iphone6s.png" alt="iphone6s_screen" width="253" height="450" id="iphone">
-  <p style="z-index: 3;position: relative;padding-left:15px;padding-top:25px;color: red;font-size:25px;" >Helllooo</p>
+  <p id="show_Name" style="z-index: 3;position: relative;padding-left:15px;padding-top:25px;color: red;font-size:25px;" >.</p>
+  <p id="show_Description" style="z-index: 3;position: relative;padding-left:15px;padding-top:25px;color: red;font-size:25px;" >.</p>
   <!-- <div id="show_Name" class="grid_5" class="shows">
   </div>
   <div id="show_ID" class="grid_5" class="shows">
@@ -109,9 +110,10 @@
 var ID;
 function protoShow(){
     // $( "#show_Description" ).empty();
+    // $( "#show_Description" ).html($("#content_Description").val());
+    $( "#show_Name" ).html($("#content_Name").val());
     $( "#show_Description" ).html($("#content_Description").val());
     // $( "#show_Name" ).empty();
-    $( "#show_Name" ).append($("#content_Name").val());
 
 }
 
