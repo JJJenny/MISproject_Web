@@ -32,17 +32,19 @@
   margin-bottom: 20px;
 }
 #preview{
-
+  margin-top: 20px;
   height: 600px;
-  text-align: center;
+  /*text-align: center;*/
 }
 #iphone{
   background-image: url("iphone6s.png");
   max-width: 100%;
-  width: 300px;
-  float:right;
-  background-position: center; 
-  background-repeat: no-repeat;
+  position: absolute;
+  /*width: 300px;*/
+  /*float:right;*/
+  /*background-position: center;*/
+  /*background-repeat: no-repeat;*/
+  z-index: 2;
 }
 #edit{
 
@@ -90,7 +92,7 @@ body {
  background-image: url("iphone6s.png");
 
 }
-/* Header 
+/* Header
 ---------------------------------------------------------------------------------*/
 .header{
   background-color: #787878;

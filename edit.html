@@ -11,14 +11,14 @@
 </head>
 
 <body>
-  <!-- <header id="header" style="background-color:white" width: 100%; height: 100 px;> -->   
+  <!-- <header id="header" style="background-color:white" width: 100%; height: 100 px;> -->
   <div class="container_12">
     <header class="header">
       <a href="index.html">
       <img src="back.png" alt="back" width:100%; padding-left: 25px; >
       </a>
       <img src="sniff_test1.png" alt="logo"  style =" width: 100px; height: 100px; align = right"; >
-    </header> 
+    </header>
   <div class="grid_6" height: 100%; width: 100%; id="edit">
   <!-- <div class="grid_5 push_0">
   </div> -->
@@ -77,29 +77,29 @@
 
 <!-- ---------------------------------- -->
 
-<div class="grid_6" style=" left: 1000px; top: 0px;"  id="preview"  class="shows" align:center>
-  <section id="iphone" >
-    <div id="show_Name" class="grid_5" class="shows">
-    </div>
-    <div id="show_ID" class="grid_5" class="shows">
-    </div>
-    <div id="show_category" class="grid_5" class="shows">
-    </div>
-    <div id="show_type" class="grid_5" class="shows">
-    </div>
-    <div id="show_Source" class="grid_5" class="shows">
-    </div>
-    <div id="show_Link" class="grid_5" class="shows">
-    </div>
-    <div id="show_Description" class="grid_5" class="shows">
-    </div>
-    <div id="show_Banner" class="grid_5" class="shows">
-    </div>
-  </section>
+<div class="grid_6" style=" left: 500px; top: 0px;"  id="preview"  class="shows">
+  <img src="iphone6s.png" alt="iphone6s_screen" width="253" height="450" id="iphone">
+  <p style="z-index: 3;position: relative;padding-left:15px;padding-top:25px;color: red;font-size:25px;" >Helllooo</p>
+  <!-- <div id="show_Name" class="grid_5" class="shows">
+  </div>
+  <div id="show_ID" class="grid_5" class="shows">
+  </div>
+  <div id="show_category" class="grid_5" class="shows">
+  </div>
+  <div id="show_type" class="grid_5" class="shows">
+  </div>
+  <div id="show_Source" class="grid_5" class="shows">
+  </div>
+  <div id="show_Link" class="grid_5" class="shows">
+  </div>
+  <div id="show_Description" class="grid_5" class="shows">
+  </div>
+  <div id="show_Banner" class="grid_5" class="shows">
+  </div> -->
   <button onclick="go()" type="button">送出</button>
 </div>
 
-<!-- ---------------------------------- --> 
+<!-- ---------------------------------- -->
 </div>
   <script type="text/javascript">
 
@@ -129,28 +129,28 @@ function go() {
 
     object.set("content_ID",$("#content_ID").val());
     object.save();
-    
-    
+
+
     object.set("category",$("#category").val());
     object.save();
     // $( "#show_category" ).empty();
     // $( "#show_category" ).append(object.get("category"));
-    
+
     object.set("type",$("#type").val());
     object.save();
     // $( "#show_type" ).empty();
     // $( "#show_type" ).append(object.get("type"));
-    
+
     object.set("content_Source",$("#content_Source").val());
     object.save();
     // $( "#show_Source" ).empty();
     // $( "#show_Source" ).append(object.get("content_Source"));
-    
+
     object.set("content_Link",$("#content_Link").val());
     object.save();
     // $( "#show_Link" ).empty();
     // $( "#show_Link" ).append(object.get("content_Link"));
-    
+
     object.set("content_Description",$("#content_Description").val());
     object.save();
     // $( "#show_Description" ).empty();
