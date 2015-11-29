@@ -1,0 +1,172 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title> Hi ____ </title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="960_12_col.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.3.min.js"></script>
+</head>
+
+<body>
+  <!-- <header id="header" style="background-color:white" width: 100%; height: 100 px;> -->   
+  <div class="container_12">
+    <header class="header">
+      <a href="index.html">
+      <img src="back.png" alt="back" width:100%; padding-left: 25px; >
+      </a>
+      <img src="sniff_test1.png" alt="logo"  style =" width: 100px; height: 100px; align = right"; >
+    </header> 
+  <div class="grid_6" height: 100%; width: 100%; id="edit">
+  <!-- <div class="grid_5 push_0">
+  </div> -->
+  <div class="grid_5 push_0">
+    <span class="input-label">Username</span>
+      <input type="text" id="content_Name" value="文章標題">
+  <!-- <div class="inputs"> -->
+  <div>
+    <span class="input-label">資料編號</span>
+  </div>
+  <div class="category" class="inputs">
+  <span class="input-label">Category</span>
+     <select  class="select" id="category">
+        <option value="soundArt">聲音藝術</option>
+　      <option value="fromScratch">製作起源</option>
+　      <option value="musicTrend">音樂趨勢</option>
+　      <option value="latestShow">最新展演</option>
+　      <option value="digiArt">數位藝術</option>
+        <option value="photo">攝錄作品</option>
+　    </select>
+  </div>
+
+  <div class="type" class="inputs">
+  活動/文章
+      <select  class="select" id="type">
+        <option value="activity">活動</option>
+　      <option value="artcile">文章</option>
+　    </select>
+  </div>
+
+
+  <div class="inputs">
+  <input type="text" id="content_Source" value="文章來源">
+  </div>
+
+  <div class="inputs">
+  <input type="text" id="content_Link" value="文章連結">
+  </div>
+
+  <div class="input-label">
+  <textarea id="content_Description" value="文章內容" rows="4" cols="50">
+  </textarea>
+  </div>
+
+  <div class="bannerUpload" class="inputs-label">
+  Upload Image
+  <input type="file" id="bannerUpload">
+  </div>
+
+  <div class="inputs-label">
+<!-- <button onclick="go()" type="button">送出</button> -->
+  <button onclick="protoShow()" type="button">預覽</button>
+  </div>
+</div>
+</div>
+
+<!-- ---------------------------------- -->
+
+<div class="grid_6" style=" left: 1000px; top: 0px;"  id="preview"  class="shows" align:center>
+  <section id="iphone" >
+    <div id="show_Name" class="grid_5" class="shows">
+    </div>
+    <div id="show_ID" class="grid_5" class="shows">
+    </div>
+    <div id="show_category" class="grid_5" class="shows">
+    </div>
+    <div id="show_type" class="grid_5" class="shows">
+    </div>
+    <div id="show_Source" class="grid_5" class="shows">
+    </div>
+    <div id="show_Link" class="grid_5" class="shows">
+    </div>
+    <div id="show_Description" class="grid_5" class="shows">
+    </div>
+    <div id="show_Banner" class="grid_5" class="shows">
+    </div>
+  </section>
+  <button onclick="go()" type="button">送出</button>
+</div>
+
+<!-- ---------------------------------- --> 
+</div>
+  <script type="text/javascript">
+
+    Parse.initialize("9ENbq1vYYEOYjZGU2eZji3wEM03FyNl3SHZyA5Us", "YAMMC0QQPvVtuxG6jQSnZM0wh8tjki6MMstmb9tK");
+
+
+var ID;
+function protoShow(){
+    // $( "#show_Description" ).empty();
+    $( "#show_Description" ).html($("#content_Description").val());
+    // $( "#show_Name" ).empty();
+    $( "#show_Name" ).append($("#content_Name").val());
+
+}
+
+function go() {
+  var contentWeb = Parse.Object.extend("ContentWeb");
+  var queryContent = new Parse.Query(contentWeb);
+  queryContent.equalTo("content_ID", "1");
+  queryContent.find({
+  success: function(results) {
+    var object = results[0];
+    //alert( object.get("content_Name"));
+    object.set("content_Name",$("#content_Name").val());
+    object.save();
+    $( "#show_Name" ).append("Parse got data " + object.get("content_Name"));
+
+    object.set("content_ID",$("#content_ID").val());
+    object.save();
+    
+    
+    object.set("category",$("#category").val());
+    object.save();
+    // $( "#show_category" ).empty();
+    // $( "#show_category" ).append(object.get("category"));
+    
+    object.set("type",$("#type").val());
+    object.save();
+    // $( "#show_type" ).empty();
+    // $( "#show_type" ).append(object.get("type"));
+    
+    object.set("content_Source",$("#content_Source").val());
+    object.save();
+    // $( "#show_Source" ).empty();
+    // $( "#show_Source" ).append(object.get("content_Source"));
+    
+    object.set("content_Link",$("#content_Link").val());
+    object.save();
+    // $( "#show_Link" ).empty();
+    // $( "#show_Link" ).append(object.get("content_Link"));
+    
+    object.set("content_Description",$("#content_Description").val());
+    object.save();
+    // $( "#show_Description" ).empty();
+    // $( "#show_Description" ).append(object.get("content_Description"));
+
+    //$( "#show_Banner" ).empty();
+    //$( "#show_Banner" ).append(object.get("banner"));
+  },
+  error: function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+});
+
+}
+  </script>
+
+</body>
+
+</html>
